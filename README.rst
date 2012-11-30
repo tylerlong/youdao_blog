@@ -1,5 +1,5 @@
 有道云博客
-＝＝＝＝＝
+==========
 利用有道云笔记作为存储的个人博客平台。
 
 之前我写过两个项目everblog和eversite，利用evernote作为存储，我个人的博客 http://www.tylerlong.me 就运行在上面（一开始运行在everblog，后来迁移到eversite）。

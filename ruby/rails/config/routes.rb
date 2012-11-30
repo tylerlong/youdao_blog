@@ -1,4 +1,13 @@
 YoudaoBlog::Application.routes.draw do
+  resources :menuitems
+
+
+  resources :pages
+
+
+  resources :lists
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

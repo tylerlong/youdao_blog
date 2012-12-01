@@ -1,3 +1,5 @@
 class Menuitem < ActiveRecord::Base
-  attr_accessible :ref_id, :ref_type
+  attr_accessible :title, :permalink
+
+  default_scope order("id ASC")
 end

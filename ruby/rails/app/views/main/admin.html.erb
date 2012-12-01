@@ -32,10 +32,10 @@
 <hr/>
 
 <% Menuitem.all.each_with_index do |menuitem, index| %>
-#<%= index + 1 %> <%= menuitem.ref_type %>#<%= menuitem.ref_id %><br/>
+#<%= index + 1 %> <%= menuitem.title %> /<%= menuitem.permalink %><br/>
 <% end %>
 <%= form_for Menuitem.new do |f| %>
-<%= f.text_field :ref_type, class: "input-medium", placeholder: "type: list or page", required: true %>
-<%= f.text_field :ref_id, class: "input-medium", placeholder: "id: list id or page id", required: true %>
+<%= f.text_field :title, class: "input-small", placeholder: "title", required: true %>
+<%= f.text_field :permalink, class: "input-small", placeholder: "permalink", required: true %>
 <%= f.submit "创建菜单项", class: "btn"%>
 <% end %>

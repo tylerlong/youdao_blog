@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121130171059) do
+ActiveRecord::Schema.define(:version => 20121201092533) do
 
   create_table "lists", :force => true do |t|
     t.string   "title",      :null => false
@@ -24,13 +24,11 @@ ActiveRecord::Schema.define(:version => 20121130171059) do
   add_index "lists", ["title"], :name => "index_lists_on_title", :unique => true
 
   create_table "menuitems", :force => true do |t|
-    t.string   "ref_type",   :null => false
-    t.integer  "ref_id",     :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "permalink",  :null => false
+    t.string   "title",      :null => false
   end
-
-  add_index "menuitems", ["ref_type", "ref_id"], :name => "index_menuitems_on_ref_type_and_ref_id", :unique => true
 
   create_table "pages", :force => true do |t|
     t.string   "title",      :null => false

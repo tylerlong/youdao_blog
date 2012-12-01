@@ -2,40 +2,32 @@
   <h1>后台管理</h1>
 </div>
 
+<%= render "menuitems/menuitems" %>
+
+<hr/>
+
 <% Page.where(list_id: nil).each do |page| %>
-<%= page.title %>
+/<%= page.permalink %> <%= page.title %>
 <% end %>
 <%= form_for Page.new do |f| %>
   <%= f.text_field :youdao_url, placeholder: "Youdao Url", required: true, class: "input-xxlarge" %>
-  <%= f.submit "创建内容页", class: "btn" %>
+  <%= f.submit "新 增", class: "btn" %>
 <% end %>
 
 <hr/>
 
+<%= form_for List.new do |f| %>
+/<%= f.text_field :permalink, placeholder: "permalink", required: true, class: "input-small" %>
+<%= f.submit "新 增", class: "btn" %>
+<% end %>
 <% List.all.each do |list| %>
-  <h3>#<%= list.id %>. <%= list.title %> /<%= list.permalink %></h3>
+  <h3>/<%= list.permalink %></h3>
   <% list.pages.each do |page| %>
-    #<%= page.id %>. <%= page.title %><br/>
+    /<%= page.permalink %> <%= page.title %><br/>
   <% end %>
   <%= form_for Page.new do |f| %>
   <%= hidden_field_tag :list_id, list.id %>
   <%= f.text_field :youdao_url, placeholder: "Youdao Url", required: true, class: "input-xxlarge" %>
-  <%= f.submit "创建内容页", class: "btn" %>
+  <%= f.submit "新 增", class: "btn" %>
   <% end %>
-<% end %>
-<%= form_for List.new do |f| %>
-<%= f.text_field :title, placeholder: "title", required: true, class: "input-small" %>
-/<%= f.text_field :permalink, placeholder: "permalink", required: true, class: "input-small" %>
-<%= f.submit "创建列表页", class: "btn" %>
-<% end %>
-
-<hr/>
-
-<% Menuitem.all.each_with_index do |menuitem, index| %>
-#<%= index + 1 %> <%= menuitem.title %> /<%= menuitem.permalink %><br/>
-<% end %>
-<%= form_for Menuitem.new do |f| %>
-<%= f.text_field :title, class: "input-small", placeholder: "title", required: true %>
-<%= f.text_field :permalink, class: "input-small", placeholder: "permalink", required: true %>
-<%= f.submit "创建菜单项", class: "btn"%>
 <% end %>

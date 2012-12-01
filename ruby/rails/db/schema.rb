@@ -11,17 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121201092533) do
+ActiveRecord::Schema.define(:version => 20121201104700) do
 
   create_table "lists", :force => true do |t|
-    t.string   "title",      :null => false
     t.string   "permalink",  :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   add_index "lists", ["permalink"], :name => "index_lists_on_permalink", :unique => true
-  add_index "lists", ["title"], :name => "index_lists_on_title", :unique => true
 
   create_table "menuitems", :force => true do |t|
     t.datetime "created_at", :null => false

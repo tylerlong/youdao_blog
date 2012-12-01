@@ -24,7 +24,7 @@
           <div class="container nav-collapse">
             <ul class="nav">
               <% Menuitem.all.each do |mi| %>
-              <li><%= link_to mi.title, "/#{mi.permalink}"  %></li>
+              <li><%= link_to mi.title, "/#{mi.permalink}/"  %></li>
               <% end %>
             </ul>
           </div><!--/.nav-collapse -->

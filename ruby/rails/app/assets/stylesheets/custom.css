@@ -1,0 +1,7 @@
+body {
+  padding-top: 36px;
+}
+
+div.main-content {
+  min-height: 500px;
+}

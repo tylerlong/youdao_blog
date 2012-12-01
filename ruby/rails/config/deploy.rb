@@ -3,7 +3,7 @@ require "rvm/capistrano"
 server "linode-server", :web
 set :user, "root"
 set :rvm_type, :system
-set :website_dir, "/srv/www/tylerlong"
+set :website_dir, "/srv/www/tylerlong/ruby/rails"
 
 task :go do
   %x( git push )

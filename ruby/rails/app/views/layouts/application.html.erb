@@ -26,6 +26,7 @@
               <% Menuitem.all.each do |mi| %>
               <li><%= link_to mi.title, "/#{mi.permalink}/"  %></li>
               <% end %>
+              <li><%= link_to admin_path  do %>&nbsp;<% end %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -39,6 +40,7 @@
       </div><!--/row-->
       <footer>
         <p>&copy; <a href="http://www.tylerlong.me">Tyler Long</a> 2012</p>
+        <p>Powered by <a href="https://github.com/tylerlong/youdao_blog" target="_blank">有道云博客</a></p>
       </footer>
     </div> <!-- /container -->
     <%= javascript_include_tag "application" %>

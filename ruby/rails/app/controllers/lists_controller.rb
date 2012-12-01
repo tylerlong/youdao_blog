@@ -10,4 +10,9 @@ class ListsController < ApplicationController
     render "lists/refresh"
   end
 
+  def show
+    @menuitem = Menuitem.find_by_permalink(params[:permalink]) || raise_404
+    @list = List.find_by_permalink(params[:permalink]) || raise_404
+  end
+
 end

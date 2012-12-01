@@ -1,0 +1,13 @@
+<h1><%= CONFIG.site_name %></h1>
+
+<% Menuitem.all.each do |menuitem| %>
+  <% if menuitem.list_page?
+    list = List.find_by_permalink(menuitem.permalink)
+    if list%>
+      <h3><%= menuitem.title %></h3>
+      <% list.pages[0...5].each do |page| %>
+        <p><%= link_to page.title, "/#{page.permalink}/" %> - <%= page.created_date %></p>
+      <% end%>
+    <% end%>
+  <% end %>
+<% end %>

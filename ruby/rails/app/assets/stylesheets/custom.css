@@ -5,3 +5,7 @@ body {
 div.main-content {
   min-height: 500px;
 }
+
+footer {
+  margin-top: 64px;
+}

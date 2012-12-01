@@ -3,8 +3,8 @@ common: &common
 
 development:
   <<: *common
-  admin_name: admin
-  admin_password: 123456
+  admin_name: "admin"
+  admin_password: "123456"
 
 production:
   <<: *common

@@ -1,0 +1,7 @@
+<div class="page-header">
+  <h1><%= @menuitem.title %></h1>
+</div>
+
+<% @list.pages.each do |page| %>
+<p><%= link_to page.title, "/#{page.permalink}/" %> - <%= page.created_date %></p>
+<% end %>

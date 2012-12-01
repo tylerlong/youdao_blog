@@ -29,4 +29,8 @@ class PagesController < ApplicationController
     render "pages/refresh"
   end
 
+  def show
+    @page = Page.find_by_permalink(params[:permalink]) || raise_404
+  end
+
 end

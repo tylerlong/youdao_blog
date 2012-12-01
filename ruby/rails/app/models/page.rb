@@ -1,3 +1,5 @@
+require 'date'
+
 class Page < ActiveRecord::Base
   attr_accessible :youdao_url
 
@@ -5,5 +7,9 @@ class Page < ActiveRecord::Base
 
   validates :youdao_url, presence: true
 
-  default_scope order("permalink ASC")
+  default_scope order("permalink DESC")
+
+  def created_date
+    DateTime.strptime(self.permalink, '%s').strftime('%F')
+  end
 end

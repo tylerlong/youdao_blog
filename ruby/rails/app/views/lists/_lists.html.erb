@@ -1,0 +1,11 @@
+<%= render "lists/form" %>
+
+<% List.all.each do |list| %>
+  <h3>/<%= list.permalink %></h3>
+  <%= render list.pages %>
+  <%= form_for Page.new do |f| %>
+  <%= hidden_field_tag :list_id, list.id %>
+  <%= f.text_field :youdao_url, placeholder: "Youdao Url", required: true, class: "input-xxlarge" %>
+  <%= f.submit "新 增", class: "btn" %>
+  <% end %>
+<% end %>

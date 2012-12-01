@@ -2,9 +2,5 @@
 <% Menuitem.all.each_with_index do |menuitem, index| %>
 #<%= index + 1 %>. <%= render menuitem %> <br/>
 <% end %>
-<%= form_for Menuitem.new, remote: true do |f| %>
-<%= f.text_field :title, class: "input-small", placeholder: "title", required: true %>
-<%= f.text_field :permalink, class: "input-small", placeholder: "permalink", required: true %>
-<%= f.submit "创建菜单项", class: "btn"%>
-<% end %>
+<%= render "menuitems/form" %>
 </section>

@@ -1,0 +1,5 @@
+<%= form_for Page.new, remote: true do |f| %>
+<%= hidden_field_tag :list_id, list.id %>
+<%= f.text_field :youdao_url, placeholder: "Youdao Url", required: true, class: "input-xxlarge" %>
+<%= f.submit "新 增", class: "btn" %>
+<% end %>

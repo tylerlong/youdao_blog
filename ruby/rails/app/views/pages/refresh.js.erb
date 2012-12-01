@@ -1,0 +1,5 @@
+<% if @section == "pages" %>
+$('#pages').replaceWith('<%= escape_javascript render("pages/pages") %>');
+<% else %>
+$('#lists').replaceWith('<%= escape_javascript render("lists/lists") %>');
+<% end %>

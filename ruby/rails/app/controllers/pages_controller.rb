@@ -2,7 +2,9 @@ require 'net/http'
 require 'uri'
 
 class PagesController < ApplicationController
+
   Youdao_regex = /\?id=([a-f0-9]+?)&type=/
+
   def create
     @page = Page.new(params[:page])
     @page.list_id = params[:list_id]
@@ -16,6 +18,15 @@ class PagesController < ApplicationController
     @page.permalink = data["ct"]
     @page.snippet = "just kidding"
     @page.save
-    redirect_to admin_path
+    @section = @page.list_id.present? ? "lists" : "pages"
+    render "pages/refresh"
   end
+
+  def destroy
+    page = Page.find(params[:id])
+    @section = page.list_id.present? ? "lists" : "pages"
+    page.destroy
+    render "pages/refresh"
+  end
+
 end

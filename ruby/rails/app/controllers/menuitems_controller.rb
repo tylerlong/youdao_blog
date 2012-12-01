@@ -1,7 +1,13 @@
 class MenuitemsController < ApplicationController
+
   def create
-    @menuitem = Menuitem.new(params[:menuitem])
-    @menuitem.save
+    Menuitem.create(params[:menuitem])
     render "menuitems/refresh"
   end
+
+  def destroy
+    Menuitem.find(params[:id]).destroy
+    render "menuitems/refresh"
+  end
+
 end

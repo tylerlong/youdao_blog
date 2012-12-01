@@ -1,1 +1,1 @@
-<%= menuitem.title %> /<%= menuitem.permalink %>
+<%= menuitem.title %> /<%= menuitem.permalink %> <%= link_to menuitem_path(menuitem), remote: true, confirm: "确认要删除菜单项 #{menuitem.title} 吗？", method: :delete do%><i class="icon-remove"></i><% end %>

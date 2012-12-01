@@ -1,1 +1,4 @@
-/<%= page.permalink %> <%= page.title %> <%= link_to page_path(page), method: :delete, remote: true, confirm: "确认要删除内容页 #{page.title} 吗？" do %><i class="icon-remove"></i><% end %><br/>
+/<%= page.permalink %> <%= page.title %>
+<%= link_to page_path(page), method: :delete, remote: true, confirm: "确认要 删除 内容页 #{page.title} 吗？" do %><i class="icon-remove"></i><% end %>
+<%= link_to refresh_page_path(page), remote: true, confirm: "确认要 刷新 内容页 #{page.title} 吗？" do %><i class="icon-refresh"></i><% end %>
+<br/>

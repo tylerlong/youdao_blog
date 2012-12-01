@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121201104700) do
+ActiveRecord::Schema.define(:version => 20121201142221) do
 
   create_table "lists", :force => true do |t|
     t.string   "permalink",  :null => false
@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(:version => 20121201104700) do
 
   create_table "pages", :force => true do |t|
     t.string   "title",      :null => false
-    t.string   "snippet",    :null => false
     t.text     "content",    :null => false
     t.string   "youdao_url", :null => false
     t.integer  "list_id"

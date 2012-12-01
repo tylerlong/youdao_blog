@@ -1,23 +1,9 @@
-require 'net/http'
-require 'uri'
-
 class PagesController < ApplicationController
-
-  Youdao_regex = /\?id=([a-f0-9]+?)&type=/
 
   def create
     @page = Page.new(params[:page])
     @page.list_id = params[:list_id]
-    youdao_id = Youdao_regex.match(@page.youdao_url).captures[0]
-    youdao_url = "http://note.youdao.com/yws/public/note/#{youdao_id}?keyfrom=public"
-    uri = URI.parse(youdao_url)
-    response = Net::HTTP.get_response uri
-    data = JSON.load response.body
-    @page.content = data["content"]
-    @page.title = data["tl"]
-    @page.permalink = data["ct"]
-    @page.snippet = "just kidding"
-    @page.save
+    @page.refresh
     @section = @page.list_id.present? ? "lists" : "pages"
     render "pages/refresh"
   end
@@ -31,6 +17,14 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.find_by_permalink(params[:permalink]) || raise_404
+  end
+
+  def refresh
+    page = Page.find(params[:id])
+    @section = page.list_id.present? ? "lists" : "pages"
+    page.refresh
+    page.save
+    render "pages/refresh"
   end
 
 end

@@ -1,3 +1,8 @@
-<h3>/<%= list.permalink %> <%= link_to list_path(list), method: :delete, remote: true, confirm: "确认要删除列表页 /#{list.permalink} 吗？" do %><i class="icon-remove"></i><% end %></h3>
+<h3>/<%= list.permalink %>
+<%= link_to list_path(list), method: :delete, remote: true, confirm: "确认要 删除 列表页 /#{list.permalink} 吗？" do %><i class="icon-remove"></i><% end %>
+<%= link_to refresh_list_path(list), remote: true, confirm: "确认要 刷新 列表页 /#{list.permalink} 吗？" do %>
+<i class="icon-refresh"></i>
+<% end %>
+</h3>
 <%= render list.pages %>
 <%= render "lists/page_form", list: list %>

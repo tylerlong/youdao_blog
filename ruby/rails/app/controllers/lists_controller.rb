@@ -15,4 +15,9 @@ class ListsController < ApplicationController
     @list = List.find_by_permalink(params[:permalink]) || raise_404
   end
 
+  def refresh
+    List.find(params[:id]).refresh
+    render "lists/refresh"
+  end
+
 end
